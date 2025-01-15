@@ -15,3 +15,6 @@ Route::resource('/customer', \App\Http\Controllers\CustomerController::class);
 
 Route::get('dashboard', [UserController::class, 'dashboard']);
 Route::get('users', [UserController::class, 'users']);
+Route::get('register', [UserController::class, 'index']);
+Route::get('printpdf', [UserController::class, 'printPDF'])->name('printuser');
+Route::get('printexcel', [UserController::class, 'userExcel'])->name('exceluser');
