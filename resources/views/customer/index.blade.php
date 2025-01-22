@@ -10,7 +10,7 @@
             <div class="card-body">
                 <a href="{{ route('customer.create') }}" class="btn btn-md btn-success mb-3">ADD customer</a>
                 <div class="row">
-                    <table class="table table-bordered data-table">
+                    <table class="table table-bordered data-table" id="datatablesSimple">
                         <thead>
                             <tr>
                                 <th>NO</th>

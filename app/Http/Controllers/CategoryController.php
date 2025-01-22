@@ -6,6 +6,7 @@ use App\Models\Category;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class CategoryController extends Controller
 {
@@ -97,5 +98,21 @@ class CategoryController extends Controller
         $categories->delete();
 
         return redirect()->route('category.index')->with(['success' => 'Data Berhasil Dihapus!']);
+    }
+
+    public function printCatPdf()
+    {
+        $categories = Category::get();
+        $data = [
+            'title' => 'Welcome To fti.uniska-bjm.ac.id',
+            'date' => date('m/d/Y'),
+            'categories' => $categories
+        ];
+    
+        // Memanggil metode loadView menggunakan facade
+        $pdf = PDF::loadView('category.categorypdf', $data);
+        $pdf->setPaper('A4', 'landscape');
+    
+        return $pdf->stream('Data Category.pdf', ["attachment" => false]);
     }
 }

@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 
@@ -16,5 +18,7 @@ Route::resource('/customer', \App\Http\Controllers\CustomerController::class);
 Route::get('dashboard', [UserController::class, 'dashboard']);
 Route::get('users', [UserController::class, 'users']);
 Route::get('register', [UserController::class, 'index']);
-Route::get('printpdf', [UserController::class, 'printPDF'])->name('printuser');
+Route::get('printuserpdf', [UserController::class, 'printPDF'])->name('printuser');
+Route::get('printcategorypdf', [CategoryController::class, 'printCatPDF'])->name('printcategory');
+Route::get('printproductpdf', [ProductController::class, 'printProductPDF'])->name('printproduct');
 Route::get('printexcel', [UserController::class, 'userExcel'])->name('exceluser');

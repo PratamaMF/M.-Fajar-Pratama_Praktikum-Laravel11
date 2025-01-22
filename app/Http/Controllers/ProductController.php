@@ -7,6 +7,7 @@ use Illuminate\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Storage;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 
 class ProductController extends Controller
@@ -137,6 +138,22 @@ class ProductController extends Controller
         $product->delete();
         //redirect to index
         return redirect()->route('products.index')->with(['success' => 'Data Berhasil Dihapus!']);
+    }
+
+    public function printProductPDF()
+    {
+        $products = Product::get();
+        $data = [
+            'title' => 'Welcome To fti.uniska-bjm.ac.id',
+            'date' => date('m/d/Y'),
+            'products' => $products
+        ];
+    
+        // Memanggil metode loadView menggunakan facade
+        $pdf = PDF::loadView('products.productpdf', $data);
+        $pdf->setPaper('A4', 'landscape');
+    
+        return $pdf->stream('Data Product.pdf', ["attachment" => false]);
     }
 
 }

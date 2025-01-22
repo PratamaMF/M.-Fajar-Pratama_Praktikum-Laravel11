@@ -10,7 +10,7 @@
             <div class="card-body">
                 <a href="{{ route('satuan.create') }}" class="btn btn-md btn-success mb-3">ADD Satuan</a>
                 <div class="row">
-                    <table class="table table-bordered data-table">
+                    <table class="table table-bordered data-table" id="datatablesSimple">
                         <thead>
                             <tr>
                                 <th>NO</th>

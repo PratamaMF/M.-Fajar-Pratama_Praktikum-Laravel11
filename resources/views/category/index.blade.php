@@ -7,10 +7,15 @@
             <li class="breadcrumb-item active">Category</li>
         </ol>
         <div class="card mb-4">
+            <div class="card-header">
+                <div class="float-end">
+                    <a href="{{ route('printcategory') }}" class="btn btn-md btn-warning mb-3">PRINT CATEGORY</a>
+                </div>
+            </div>
             <div class="card-body">
                 <a href="{{ route('category.create') }}" class="btn btn-md btn-success mb-3">ADD CATEGORY</a>
                 <div class="row">
-                    <table class="table table-bordered data-table">
+                    <table class="table table-bordered data-table" id="datatablesSimple">
                         <thead>
                             <tr>
                                 <th>NO</th>

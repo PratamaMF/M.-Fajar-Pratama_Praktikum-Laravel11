@@ -15,7 +15,7 @@
         </div>
         <div class="card-body">
             <div class="row">
-                <table class="table table-bordered data-table">
+                <table class="table table-bordered data-table" id="datatablesSimple">
                     <thead>
                         <tr>
                             <th>ID</th>
